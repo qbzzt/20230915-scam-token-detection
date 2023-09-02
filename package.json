@@ -5,7 +5,7 @@
   "main": "index.ts",
   "type": "module",
   "scripts": {
-    "susApprovals": "tsx susApproval.ts"
+    "susApproval": "tsx susApproval.ts"
   },
   "keywords": [],
   "author": "",

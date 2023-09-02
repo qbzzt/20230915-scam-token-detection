@@ -1,4 +1,4 @@
-import { Address, Transaction, TransactionReceipt, createPublicClient, http, parseAbiItem } from 'viem'
+import { Address, TransactionReceipt, createPublicClient, http, parseAbiItem } from 'viem'
 import { mainnet } from 'viem/chains'
 import { config } from 'dotenv'
 config()
@@ -35,9 +35,9 @@ const suspiciousApprovalEvent = async (ev : Event) : (Event | null) => {
     if (owner.toLowerCase() != txn.from.toLowerCase())
         return ev
 
-    // It is also suspicious if the transaction destination isn't the ERC-20 contract we are
+        // It is also suspicious if the transaction destination isn't the ERC-20 contract we are
     // investigating
-    if (txn.to.toLowerCase() != testedAddress)
+    if (txn.to != testedAddress)
         return ev
 
     // If there is no reason to be suspicious, return null.
